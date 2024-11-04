@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giám sát cảm biến</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .tab-content {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="app-header sticky">
+        <div class="main-header-container container-fluid">
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <div id="connectionStatus" style="font-weight: bold; color: orange">
+              Đang kết nối...
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="app-sidebar sticky" id="sidebar">
+        <div class="main-sidebar-header">
+          <a href="index.html" class="header-logo"> </a>
+        </div>
+        <div class="main-sidebar" id="sidebar-scroll" data-simplebar="init">
+          <ul class="nav flex-column" id="sensorTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="monitoring-tab"
+                data-toggle="tab"
+                href="#monitoring"
+                role="tab"
+                aria-controls="monitoring"
+                aria-selected="true"
+                >Giám sát</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="data-tab"
+                data-toggle="tab"
+                href="#data"
+                role="tab"
+                aria-controls="data"
+                aria-selected="false"
+                >Dữ liệu</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div class="main-content app-content">
+        <div class="container-fluid">
+          <div class="tab-content" id="sensorTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="monitoring"
+              role="tabpanel"
+              aria-labelledby="monitoring-tab"
+              style="padding: 0"
+            >
+              <div class="row">
+                <div class="col-xxl-3 col-xl-3">
+                  <div
+                    class="card custom-card overflow-hidden main-content-card"
+                  >
+                    <div class="card-body">
+                      <div
+                        class="d-flex align-items-start justify-content-between mb-2 gap-1 flex-xxl-nowrap flex-wrap"
+                      >
+                        <div>
+                          <span class="text-muted d-block mb-1 text-nowrap"
+                            >Nhiệt độ</span
+                          >
+                          <h4>
+                            <span id="temperature" class="fw-medium mb-0"
+                              >0</span
+                            >
+                            °C
+                          </h4>
+                        </div>
+                        <div class="lh-1">
+                          <img
+                            class="avatar avatar-md avatar-rounded bg-primary"
+                            src="./images/temp.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3">
+                  <div
+                    class="card custom-card overflow-hidden main-content-card"
+                  >
+                    <div class="card-body">
+                      <div
+                        class="d-flex align-items-start justify-content-between mb-2 gap-1 flex-xxl-nowrap flex-wrap"
+                      >
+                        <div>
+                          <span class="text-muted d-block mb-1 text-nowrap"
+                            >Độ ẩm</span
+                          >
+                          <h4>
+                            <span id="humidity" class="fw-medium mb-0">
+                              0
+                            </span>
+                            %
+                          </h4>
+                        </div>
+                        <div class="lh-1">
+                          <img
+                            class="avatar avatar-md avatar-rounded bg-primary"
+                            src="./images/humidity_3751291.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3">
+                  <div
+                    class="card custom-card overflow-hidden main-content-card"
+                  >
+                    <div class="card-body">
+                      <div
+                        class="d-flex align-items-start justify-content-between mb-2 gap-1 flex-xxl-nowrap flex-wrap"
+                      >
+                        <div>
+                          <span class="text-muted d-block mb-1 text-nowrap"
+                            >Độ ẩm đất</span
+                          >
+                          <h4>
+                            <span id="soil_moisture" class="fw-medium mb-0"
+                              >0</span
+                            >
+                            %
+                          </h4>
+                        </div>
+                        <div class="lh-1">
+                          <img
+                            class="avatar avatar-md avatar-rounded bg-primary"
+                            src="./images/absorption_5969402.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3">
+                  <div
+                    class="card custom-card overflow-hidden main-content-card"
+                  >
+                    <div class="card-body">
+                      <div
+                        class="d-flex align-items-start justify-content-between mb-2 gap-1 flex-xxl-nowrap flex-wrap"
+                      >
+                        <div>
+                          <span class="text-muted d-block mb-1 text-nowrap"
+                            >Độ sáng</span
+                          >
+                          <h4>
+                            <span id="light_level" class="fw-medium mb-0">
+                              0
+                            </span>
+                            Lux
+                          </h4>
+                        </div>
+                        <div class="lh-1">
+                          <span
+                            class="avatar avatar-md avatar-rounded bg-primary3"
+                          >
+                            <i class="ti ti-chart-bar fs-5"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-8">
+                  <div class="card custom-card overflow-hidden">
+                    <div class="card-body">
+                      <h4 class="card-title">Cài đặt Ngưỡng Cảm Biến</h4>
+                      <form id="sensorForm">
+                        <div class="form-group mb-3">
+                          <label for="temperature">Nhiệt độ (°C):</label>
+                          <input
+                            type="number"
+                            id="threshold_temperature"
+                            name="temperature"
+                            class="form-control"
+                            placeholder="Nhập ngưỡng nhiệt độ"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mb-3">
+                          <label for="humidity">Độ ẩm (%):</label>
+                          <input
+                            type="number"
+                            id="threshold_humidity"
+                            name="humidity"
+                            class="form-control"
+                            placeholder="Nhập ngưỡng độ ẩm"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mb-3">
+                          <label for="soilMoisture">Độ ẩm đất (%):</label>
+                          <input
+                            type="number"
+                            id="threshold_soilMoisture"
+                            name="soilMoisture"
+                            class="form-control"
+                            placeholder="Nhập ngưỡng độ ẩm đất"
+                            required
+                          />
+                        </div>
+                        <div class="form-group mb-3">
+                          <label for="soilMoisture">Độ sáng (Lux)):</label>
+                          <input
+                            type="number"
+                            id="threshold_lightLevel"
+                            name="soilMoisture"
+                            class="form-control"
+                            placeholder="Nhập ngưỡng độ sáng"
+                            required
+                          />
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                          Cài đặt
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="col">
+                    <div class="card custom-card overflow-hidden">
+                      <div class="card-body">
+                        <h2>Ngưỡng cài đặt</h2>
+                        <div id="infoDisplay">
+                          <p>
+                            <strong>Nhiệt Độ:</strong>
+                            <span id="displayTemperature">0</span> °C
+                          </p>
+                          <p>
+                            <strong>Độ ẩm:</strong>
+                            <span id="displayHumidity">0</span> %
+                          </p>
+                          <p>
+                            <strong>Độ ẩm đất:</strong>
+                            <span id="displaySoilMoisture">0</span> %
+                          </p>
+                          <p style="margin-bottom: 0">
+                            <strong>Độ sáng:</strong>
+                            <span id="displayLightLevel">0</span> Lux
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card custom-card overflow-hidden">
+                      <div class="card-body">
+                        <div class="align-items-start justify-content-between">
+                          <div class="d-flex flex-column">
+                            <div
+                              class="d-flex justify-content-between align-items-center mb-2"
+                            >
+                              <span>Tự động</span>
+                              <label class="switch ms-2">
+                                <input
+                                  checked
+                                  id="autoSwitch"
+                                  type="checkbox"
+                                  onchange="handleToggleChange(this)"
+                                />
+                                <span class="slider"></span>
+                              </label>
+                            </div>
+                            <div
+                              class="d-flex justify-content-between align-items-center mb-2"
+                            >
+                              <span>Quạt</span>
+                              <label class="switch ms-2">
+                                <input
+                                  id="fanSwitch"
+                                  disabled
+                                  type="checkbox"
+                                  data-id="fan"
+                                  onchange="handleToggleChange(this)"
+                                />
+                                <span class="slider"></span>
+                              </label>
+                            </div>
+                            <div
+                              class="d-flex justify-content-between align-items-center mb-2"
+                            >
+                              <span>Máy bơm</span>
+                              <label class="switch ms-2">
+                                <input
+                                  id="pumpSwitch"
+                                  disabled
+                                  type="checkbox"
+                                  data-id="pump"
+                                  onchange="handleToggleChange(this)"
+                                />
+                                <span class="slider"></span>
+                              </label>
+                            </div>
+                            <div
+                              class="d-flex justify-content-between align-items-center"
+                            >
+                              <span>Đèn</span>
+                              <label class="switch ms-2">
+                                <input
+                                  id="ledSwitch"
+                                  disabled
+                                  type="checkbox"
+                                  data-id="led"
+                                  onchange="handleToggleChange(this)"
+                                />
+                                <span class="slider"></span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="data"
+              role="tabpanel"
+              aria-labelledby="data-tab"
+              style="padding: 0"
+            >
+              <div class="card custom-card overflow-hidden">
+                <div class="card-body">
+                  <h4 class="card-title">Dữ liệu cảm biến</h4>
+                  <div style="max-height: 500px; overflow-y: auto">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Thời gian</th>
+                          <th>Nhiệt độ (°C)</th>
+                          <th>Độ ẩm (%)</th>
+                          <th>Độ ẩm đất (%)</th>
+                          <th>Độ sáng (Lux)</th>
+                        </tr>
+                      </thead>
+                      <tbody id="dataTableBody">
+                        <!-- Rows will be inserted here dynamically -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/2.18.8/mqtt.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
